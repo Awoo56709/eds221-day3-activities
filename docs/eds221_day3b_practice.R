@@ -72,30 +72,90 @@ if (species == "cat"){
 } else
   print("bra, we dont have those animals")
 
+
+
+
+
+
+
+
 #for loops
 
-dog_names <- c("teddy","khora", "banjo","waffle")
+dog_names <- c("cocao","kora", "banjo kazooie","mouse katool")
 
-for (pepe in dog_names){
+#ex for one data element, copying and pasting
+print(paste("My dogs name is", dog_names[4]))
+print(paste("My dogs name is", dog_names[3]))
+print(paste("My dogs name is", dog_names[2]))
+print(paste("My dogs name is", dog_names[1]))
+
+#version with a variable wthat i can update
+pupster <- 3
+
+print(paste("My dogs name is", dog_names[pupster]))
+
+#stored loop
+for (pepe in dog_names){ #pepe is just like I in loops
   print(paste("My doggo is", pepe))
 }
 
 # numerrical ex
+#data i am working with
+mass <- seq(from = 0, to = 3, by = .5)
 
-mass <- seq(from = 0, to = 12, by = .5)
+i <- mass[1]
 
+new_val = i + 2 #adsding 2 with each element
+
+#write into a for loop
 for (i in mass) {
   new_val = i + 2
   print(new_val)
 }
 
-#seq along
 
+
+#seq along/indexing
+i <- 1
+new_val <-mass[i] + 2
+print(new_val)
+      
+
+#write into a for loop
+for (i in 1:length(mass)) { #defining iterator using the length of vector
+  new_val <-mass[i] + 2
+print(new_val)
+}
+
+#same thing
 for (i in seq_along(mass)) {
   new_val = i + 2
   print(new_val)
 }
 
+
+#another ex with iteratinfg by piositon (indexing_)
+tree_height <- c(1,2,6,10)
+#example for the first case
+tree_height[1] + tree_height[2]
+
+#convert into a generalizeable expression
+i <- 1
+val <-tree_height[i] + tree_height[i +1]
+print(val)
+
+#converet into a for loop
+#test out creating a sequence #fish example maybe
+seq_along(tree_height)
+for (i in seq_along(tree_height)) {
+  val <-tree_height[i] + tree_height[i +1]
+  print(val)
+}
+
+
+
+
+#other stuff
 animal <- c("dog","zebra", "cat","dog")
 
 for (i in seq_along(animal)) {
