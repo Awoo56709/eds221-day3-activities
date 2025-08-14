@@ -54,24 +54,15 @@ switch(main_ingredient,
 Create a new vector called fish that contains the values 8, 10, 12, 23 representing counts of different fish types in a fish tank (goldfish, tetras, guppies, and mollies, respectively). Write a for loop that iterates through fish, and returns what proportion of total fish in the tank are that species. Assume that these counts represent all fish in the tank.
 
 ```{r}
-num_fish <- c(8,10,12,23)
-total_fish <-(8 + 10 +12 +23)
-type_fish <- c("goldfish", "tetras", "guppies", "mollies")
+#num_fish <- c(8,10,12,23)
+#total_fish <-(8 + 10 +12 +23)
+#type_fish <- c("goldfish", "tetras", "guppies", "mollies")
+fish <- c(goldfish = 8, tetras = 10, guppies = 12, mollies = 23)
 
-for (i in seq_along(type_fish)) {
-  if (type_fish[i] == "goldfish") {
-    num_fish <- num_fish[i] / total_fish
-  } else if (type_fish[i] == "tetras") {
-    num_fish <- num_fish[i] / total_fish
-} else if (type_fish[i] == "guppies") {
-    num_fish <- num_fish[i] / total_fish
-} else if (type_fish[i] == "mollies") {
-    num_fish <- num_fish[i] / total_fish
+for (i in seq_along(fish)) {
+  fish_prop <- fish[i] / sum(fish)
+  print(fish_prop)
 }
-  print(paste("The proportion of", type_fish, "is", num_fish[i]))
-}
-
-
 ```
 # Task 5
 There is an existing vector in R called month.name that contains all month names (just ry running month.name in the Console to check it out). Write a for loop that iterates over all months in month.name and prints “January is month 1,” “February is month 2”, etc.
@@ -81,13 +72,14 @@ Hint: you can index values in the month.name vector just like you would any othe
 ```{r}
 month.name
 ```
-
 ```{r}
-for (i in month.name) {
-  if month.name == "January") {
-    print(paste(month.name, "is month 1"))
-  }
+for (i in seq_along(month.name)) {
+    print(paste(month.name[i], "is month", i))
 }
 ```
+
+
+
+
 
 
