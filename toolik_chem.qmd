@@ -1,0 +1,41 @@
+---
+title: "eds221_day3_activity_part3"
+format: html
+editor: visual
+---
+
+```{r}
+#importing libraries
+library(tidyverse)
+library(here)
+library(janitor)
+```
+
+
+```{r}
+toolik_biochem <- read_csv(here::here("data","2011_Kling_Akchem.csv"), na = c(".","NA")) |> janitor::clean_names()
+```
+```{r}
+names(toolik_biochem)
+```
+
+```{r}
+inlet_biochem <- toolik_biochem |>
+  filter(site == "Toolik Inlet") |>
+  select(p_h, doc_u_m, tdn_u_m)
+inlet_biochem
+```
+
+
+```{r}
+for (i in seq_along(inlet_biochem)) {
+  mean_val <- mean(inlet_biochem[[i]], na.rm = TRUE)
+  print(mean_val)
+}
+```
+
+
+```{r}
+apply(X = inlet_biochem, MARGIN = 2, FUN = mean, na.rm = TRUE)
+```
+
